@@ -1,0 +1,119 @@
+@import "_utilities.scss";
+
+
+.LearnMoreBtn {
+  @include btn-theme();
+}
+
+.container
+ {
+  padding-left: 8%;
+  padding-right: 8%;
+  font-family: var(--text-font);
+}
+.Part1,
+.Part2,
+.Part3,
+.Part4 {
+  height: 70vh;
+}
+
+.Part1 {
+  @include Part1(grid, repeat(2, 1fr), 35rem);
+
+  .Item1 {
+    padding-left: 7rem;
+    padding-right: 7rem;
+    padding-top: 2rem;
+    position: relative;
+    @include icon();
+    .Item1_1 {
+      margin-bottom: 2rem;
+      a {
+        color: wheat;
+      }
+    }
+    .title {
+      margin-top: 2rem;
+      font-size: 2vmax;
+    }
+  }
+  .Item2 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 3rem;
+    position: inherit;
+  }
+}
+
+.Part2 {
+  display: grid;
+  grid-template-areas:
+    "Item3 Item4"
+    "Item3 Item5";
+  @include Part2();
+  opacity: 0;
+}
+.Item3,
+.Item4,
+.Item5 {
+  
+  &:hover {
+    h3 {
+      transform: translateY(-10px);
+      cursor: default;
+    }
+  }
+}
+.Item3 {
+  grid-area: Item3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include Main-Card(150vh 95vh, auto, "../Images/soft.jpg");
+}
+.Item4 {
+  grid-area: Item4;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include Main-Card(130vh 75vh, 10vh, "../Images/app.jpg");
+}
+
+.Item5 {
+  grid-area: Item5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include Main-Card(110vh 55vh, 10vh, "../Images/gmae.jpeg");
+}
+
+.Part3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  margin-bottom: 15rem;
+  color: var(--black-text-color);
+  opacity: 0;
+
+  //visibility: hidden;
+ 
+  @include borderImg();
+  h3 {
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 3rem;
+  }
+}
+#readMoreBtn {
+  @include btn-theme();
+}
+
+#readMoreBtn {
+  display: none;
+}

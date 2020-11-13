@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+:root {
+  --dark-mood-switch-btn: linear-gradient(
+    to right,
+    hsl(210, 78%, 56%),
+    hsl(146, 68%, 55%)
+  );
+  --light-mood-switch-btn: hsl(230, 22%, 74%);
+  --text-font: 'Abel', sans-serif;
+  --white-text-color: #fff;
+  --black-text-color: #333;
+  --background-part1: linear-gradient(90deg, #fd746c 0%, #ff9068 100%);
+  --button-color: #333;
+  --card-background: #333;
+  --background-page: linear-gradient(90deg, #ece9e6 0%, #ffffff 100%);
+  --count-background: #333;
+  --text-count-card:#fff;
+}
+
+[data-theme="dark"] {
+  --background-page: #333;
+  --black-text-color: #fff;
+  --count-background:#fff;
+  --text-count-card:#333;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  background: var(--background-page);
+  scroll-behavior: smooth;
+}
+
+#sidebarNav {
+  display: none;
+}
+
+// Social-Media-Icons
+@mixin icon {
+  .info_3 {
+    display: flex;
+    flex-direction: row;
+
+    i {
+      font-size: 3rem;
+      margin-right: 2rem;
+      color: #fff;
+    }
+  }
+}
+
+//Footer
+.footer {
+  background: var(--card-background);
+  color: var(--white-text-color);
+  width: 100%;
+  bottom: 0;
+  padding-right: 6%;
+  padding-left: 6%;
+  height: auto;
+  // position: relative;
+  font-family: var(--text-font);
+  .nav {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    border-bottom: 0.1px white solid;
+    .menu ul li a {
+      color: var(--white-text-color);
+    }
+    color: var(--white-text-color);
+  }
+
+  .infoFooter {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: gray;
+    margin-top: 3rem;
+    padding-bottom: 3rem;
+    font-weight: bold;
+    @include icon();
+  }
+}
+
+//information Contact inside footer
+.barFooter {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background: var(--background-part1);
+  grid-gap: 25rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+  padding-left: 4rem;
+  padding-right: 3rem;
+  margin-top: 4rem;
+
+  // text-align: center;
+  h3 {
+    font-size: 2em;
+  }
+  border-radius: 10px;
+  top: 0;
+  height: auto;
+  transform: translateY(-10rem);
+
+  // position: absolute;
+}
+
+/*Desktop Nav*/
+@mixin DesktopNav {
+  .nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 2rem;
+    position: relative;
+    color: var(--black-text-color);
+    .menu ul li {
+      display: inline-block;
+      padding-left: 0.5rem;
+      font-weight: bold;
+      a {
+       text-decoration-line: none;
+        color: var(--black-text-color);
+      }
+    }
+    .menu ul {
+      float: right;
+      & li a {
+        padding: 1rem 1rem;
+        padding-right: 2rem;
+        padding-left: 2rem;
+        transition: all 0.3s;
+      }
+      & li a:hover {
+      // background: var(--card-background);
+      // color: var(--white-text-color);
+        border-bottom: 1px var(--black-text-color) solid;
+        cursor: pointer;
+        border-radius: 10px;
+        border-right: 3px solid var(--background-part1);
+        border-left: 3px solid var(--background-part1);
+      }
+    }
+  }
+}
+
+/*Mobile Nav*/
+@mixin MobileNav() {
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: var(--card-background);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .sidenav a {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    &:not(:first-child) {
+      border-bottom: 1px solid white;
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+
+    text-decoration: none;
+    font-size: 25px;
+    color: var(--white-text-color);
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+}
+
+//Cards Categories For my Work (Web Design,App Design, Game Design)==> Item3,Item4,Item5
+@mixin Main-Card($background-size, $padding-top, $background-image: "") {
+  background: var(--card-background);
+  color: var(--white-text-color);
+  padding-top: $padding-top;
+  padding-bottom: 10vh;
+  border-radius: 15px;
+  background-image: url($background-image);
+  background-repeat: no-repeat;
+  background-size: $background-size;
+  background-blend-mode: luminosity;
+  background-blend-mode: overlay;
+  transition: all 0.5s;
+}
+
+//Theme For All buttons
+@mixin btn-theme {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-weight: 700;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  color: var(--white-text-color);
+  transition: all 0.1s;
+  background: var(--button-color);
+  &:hover {
+    cursor: pointer;
+    background: white;
+    color: #333;
+  }
+}
+
+//The Cards in Homepage
+@mixin Part2 {
+  align-content: center;
+  grid-gap: 3rem;
+  margin-bottom: 25rem;
+  text-align: center;
+  h3 {
+    font-size: 2em;
+    font-weight: 600;
+    letter-spacing: 4px;
+    padding-bottom: 1rem;
+    transition: all 0.5s;
+  }
+  i {
+    color: #fd746c;
+  }
+  a {
+    text-decoration-line: none;
+    color: var(--white-text-color);
+    letter-spacing: 6px;
+    transition: all 0.2s;
+
+    &:hover {
+      letter-spacing: 8px;
+    }
+  }
+}
+
+//Header Page
+@mixin Part1($display, $grid-template, $height) {
+  display: $display;
+  grid-template-columns: $grid-template;
+  // font-size: 1em;
+  position: relative;
+  margin-top: 4rem;
+  margin-bottom: 20rem;
+  text-align: justify;
+  height: $height;
+  background: var(--background-part1);
+  border-radius: 10px;
+  align-content: center;
+  color: var(--white-text-color);
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+//Cycle Place to put Image in side it.
+@mixin borderImg {
+  .border-image {
+    background: var(--count-background);
+  
+    height: 250px;
+    width: 250px;
+    border-radius: 150px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    h2 {
+      color:var(--text-count-card);
+      padding-top: 40%;
+      font-size: 3em;
+    }
+  }
+}
+
+@mixin ThemeSwitcher {
+  .theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+
+    em {
+      margin-right: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-style: normal;
+      color: var(--card-text-color);
+    }
+  }
+  .theme-switch {
+    display: inline-block;
+    height: 28px;
+    position: relative;
+    width: 60px;
+  }
+
+  .theme-switch input {
+    display: none;
+  }
+
+  .slider {
+    background-color: #fd746c;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.4s;
+  }
+
+  .slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 20px;
+    left: 35px;
+    position: absolute;
+    transition: 0.4s;
+    width: 20px;
+  }
+
+  input:checked + .slider {
+    background-color: #fff;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(-30px);
+    background-color: hsl(230, 17%, 14%);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+}
+
+@mixin Cards(
+  $url-images,
+  $bgSize,
+  $bgPositionX,
+  $bgSizeHover,
+  $bgPositionXHover
+) {
+  height: 35rem;
+  width: auto;
+  position: relative;
+  background-image: url($url-images);
+  background-size: $bgSize;
+  background-position-x: $bgPositionX;
+  border-radius: 10px;
+  transition: all 0.5s;
+  //box-shadow: 0px 0px 18px #888888;
+  &:hover {
+    background-size: $bgSizeHover;
+    background-position-x: $bgPositionXHover;
+    transform: translateY(-10px);
+  }
+  a {
+    text-decoration-line: none;
+    color: #000;
+  }
+
+  .descriptionCard {
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(90deg, #b79891 0%, #94716b 100%);
+    width: 100%;
+    height: 25%;
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+    padding-top: 5%;
+    &:hover {
+      cursor: pointer;
+    }
+    h3 {
+      color: #fff;
+      font-size: 2em;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    i {
+      font-size: 10px;
+    }
+  }
+}

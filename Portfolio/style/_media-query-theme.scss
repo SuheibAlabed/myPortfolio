@@ -1,0 +1,102 @@
+@mixin media-query {
+  @media screen and (max-width: 835px) {
+    #sidebarNav {
+      display: block !important;
+      text-align: right;
+    }
+    .Part1 {
+      grid-template-columns: 1fr;
+      text-align: center;
+
+      .Item1 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .Item2 {
+        text-align: center;
+      }
+    }
+
+    .Part2 {
+      display: grid;
+      grid-template-areas:
+        "Item3"
+        "Item4"
+        "Item5";
+      width: 100%;
+      height: auto !important;
+
+      .Item3,
+      .Item4,
+      .Item5 {
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+      }
+    }
+
+    .Part3 {
+      grid-template-columns: 1fr;
+
+      .Item7,
+      .Item8 {
+        display: none;
+      }
+    }
+
+    .infoFooter {
+      grid-template-columns: 1fr !important;
+      text-align: left;
+
+      div {
+        margin-bottom: 2rem;
+      }
+    }
+    .nav .menu {
+      display: none !important;
+    }
+    #readMoreBtn {
+      display: block !important;
+    }
+    .barFooter {
+      grid-template-columns: 1fr;
+      text-align: center;
+      grid-gap: 5rem;
+    }
+
+    .cards {
+      grid-template-columns: 1fr;
+      .descriptionCard {
+        h3 {
+          font-size: 1.5rem;
+        }
+        padding-bottom: 1rem;
+      }
+    }
+
+    .Part2Web {
+      display: grid;
+      grid-template-areas:
+        "Item4"
+        "Item5";
+    }
+  }
+}
+
+@media screen and (min-width: 836px) and (max-width: 1400px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+    .descriptionCard {
+      h3 {
+        font-size: 1.5rem;
+      }
+      padding-bottom: 1rem;
+    }
+  }
+  #sidebarNav {
+    display: block !important;
+    text-align: right;
+  }
+  .nav .menu {
+    display: none !important;
+  }
+}
